@@ -27,55 +27,40 @@ public class PersonController {
 
 
     @RequestMapping (value="/mutant",method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public Object isMutant(@RequestBody Person human)  {
+    public Object isMutant(@RequestBody Person person)  {
         try {
             //search  DNA
-                Person m = personService.findMutantByDna(human.getDna());
-                if (m == null) {
-                    //analyze and save
-                    m = personService.create(human);
-                }
+            Person m = personService.findMutantByDna(person.getDna());
+            if (m == null) {
+                //analyze and save
+                m = personService.create(person);
+            }
 
-                // answer according to m
-                if (m != null) {
+            // answer according to m
+            if (m != null) {
 
-                    if (m.isMutant()) {
-                        logger.info(String.format("Is mutant "));
-                        return new ResponseEntity<Object>(HttpStatus.OK);
-
-                    } else {
-                        logger.info(String.format("Is human "));
-                        return new ResponseEntity<Object>(HttpStatus.FORBIDDEN);
-                    }
+                if (m.isMutant()) {
+                    logger.info(String.format("Is mutant "));
+                    return new ResponseEntity<Object>(HttpStatus.OK);
                 } else {
-
-                    logger.warn(String.format("Invalid DNA (n*n)"));
-
-                    throw new BadRequestException("Invalid DNA ");
-
+                    logger.info(String.format("Is human "));
+                    return new ResponseEntity<Object>(HttpStatus.FORBIDDEN);
                 }
+
+            } else {
+                logger.warn(String.format("Invalid DNA (n*n)"));
+                throw new BadRequestException("Invalid DNA ");
+            }
 
         }catch (Exception e){
             logger.warn(String.format("Invalid DNA array "));
-
-             throw new BadRequestException("Invalid DNA array");
+            throw new BadRequestException("Invalid DNA array");
         }
-
-
-
-
     }
-
-
-
-
-
 
     @RequestMapping (value="/stats",method = RequestMethod.GET)
     public Object stats()  {
         float[] stat = personService.stats();
-
-
         return "{count_mutant_dna:"+stat[0]+ ",count_human_dna:"+stat[1]+", ratio:"+stat[2]+"}";
     }
 

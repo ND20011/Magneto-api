@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Arrays;
-
+import java.util.Objects;
 
 
 @Document(collection = "Mutant")
@@ -56,5 +56,22 @@ public class Person {
                 ", dna=" + Arrays.toString(dna) +
                 ", isMutant=" + isMutant +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return isMutant == person.isMutant &&
+                Objects.equals(id, person.id) &&
+                Arrays.equals(dna, person.dna);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, isMutant);
+        result = 31 * result + Arrays.hashCode(dna);
+        return result;
     }
 }

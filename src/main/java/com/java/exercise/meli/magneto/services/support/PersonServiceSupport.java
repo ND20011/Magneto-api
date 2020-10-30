@@ -18,9 +18,7 @@ public class PersonServiceSupport implements IPersonService {
     private IPersonR personRepository;
     @Autowired
     private Analyzer analyzer;
-
     private static final Logger logger = LogManager.getLogger (PersonServiceSupport.class);
-
 
     @Override
     public Person findMutantByDna(String[] dna)  {
@@ -30,9 +28,10 @@ public class PersonServiceSupport implements IPersonService {
             logger.info (String.format ("The person is not in the db"));
             return null;
         }
-        logger.debug (String.format ("Found a person by DNA %s ", m.getId()));
+        logger.debug (String.format ("Found a person by DNA  "+ m.getId()));
         return m;
     }
+
 
     @Override
     public Person create(Person person) {
@@ -42,29 +41,19 @@ public class PersonServiceSupport implements IPersonService {
             if ( analyzer.isMutant(person.getDna()))
             {
                 person.setMutant(true);
-
             }else {
-
                 person.setMutant(false);
-
             }
             try {
                 personRepository.save(person);
                 logger.info (String.format ("person created "));
             } catch (Exception ex) {
-
             }
         }else {
             // Invalid array
             return null;
-
         }
-
-
         return person;
-
-
-
     }
 
     @Override
@@ -74,8 +63,11 @@ public class PersonServiceSupport implements IPersonService {
 
         stats[0] = personRepository.countByisMutant(true);
         stats[1] = personRepository.countByisMutant(false);
-        stats[2] = stats[0] /  stats[1];
+        if(stats[0]>0){
+            stats[2] = stats[0] /  stats[1];
+        }else {
+            stats[2] = 0;
+        }
         return stats;
-
     }
 }
