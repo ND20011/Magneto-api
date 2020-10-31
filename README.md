@@ -33,9 +33,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 1 - instalar  mongo db en un contenedor. 
 
-  Comandos :
-
-  - sudo docker pull mongo
+  Comandos : sudo docker pull mongo
  
   - sudo docker run -p 27017:27017 --name mongodb mongo 
 
