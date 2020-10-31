@@ -16,11 +16,11 @@ iguales, de forma  horizontal , vertical u oblicua
 Ejemplo (Caso mutante):
 String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 
-
-##Comenzando
+ 
+## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-##Pre-requisitos
+## Pre-requisitos
 
 - Java  JDK 11
 
@@ -33,7 +33,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 1 - instalar  mongo db en un contenedor. 
 
- - Comandos :
+  Comandos :
 
   - sudo docker pull mongo
  
@@ -53,7 +53,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 4 - Inicializar el programa: 
 
- -Comandos:
+ Comandos:
 
    - mvn clean install
     
@@ -93,10 +93,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    Resultado: 
     1- Te devolvera un http 200-Ok si es mutante 
     2- Te devolvera un http 403-Forbidden si es humano 
-      
-     
+           
 
   - GET : http://localhost:9000/api/persons/stats
    
-    Devuelve un Json con las estadísticas de las verificaciones de ADN:
+    Devuelve un Json con las estadísticas de las verificaciones de ADN
    
