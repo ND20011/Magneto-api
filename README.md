@@ -21,6 +21,11 @@ String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 ## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
+ demo:
+   http://52.14.45.142:9000/api
+    
+ 
+
 ## Pre-requisitos
 
 - Java  JDK 11
