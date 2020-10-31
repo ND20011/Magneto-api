@@ -55,11 +55,11 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  -Comandos:
 
-   -- mvn clean install
+   - mvn clean install
     
-   -- cd ./target
+   - cd ./target
     
-   -- java -jar magneto-0.0.1-SNAPSHOT.jar 
+   - java -jar magneto-0.0.1-SNAPSHOT.jar 
 
 
 ### Construido con  
