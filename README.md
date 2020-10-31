@@ -43,9 +43,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 2 - Obtén el proyecto desde GitHub
 
- -Comando:
+ Comando:
  
-   --git clone https://github.com/ND20011/Magneto-api.git
+   - git clone https://github.com/ND20011/Magneto-api.git
 
 
 3 - Abrir una terminal y dirigete a la carpeta del proyecto
@@ -76,9 +76,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    
    Ejemplo:
    
-    -POST :  http://localhost:9000/api/persons/mutant 
+    - POST :  http://localhost:9000/api/persons/mutant 
     
-    -Enviar un json con el siguiente formato: 
+    - Enviar un json con el siguiente formato: 
   
   {
     "dna":[
