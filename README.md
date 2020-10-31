@@ -4,15 +4,14 @@
 
 Examen Mercadolibre
 
-Magneto te ha contratado a ti para que desarrolles un proyecto que detecte si un
-humano es mutante basándose en su secuencia de ADN.
+Magneto api-rest, es una api que detecta si un humano es mutante basándose en su secuencia de ADN.
 
-En donde recibirás como parámetro un array de Strings que representan cada fila de una tabla
+En donde recibe como parámetro un array de Strings que representan cada fila de una tabla
 de (NxN) con la secuencia del ADN. Las letras de los Strings solo pueden ser: (A,T,C,G), las
 cuales representa cada base nitrogenada del ADN.
 
 Sabrás si un humano es mutante, si encuentras más de una secuencia de cuatro letras
-iguales, de forma oblicua, horizontal o vertical.
+iguales, de forma  horizontal , vertical u oblicua
 
 Ejemplo (Caso mutante):
 String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
@@ -21,39 +20,46 @@ String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 ##Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-###Pre-requisitos
+##Pre-requisitos
 
--Tener instalado Java  JDK 11
+- Java  JDK 11
 
--Tener instalado Maven
+- Maven
 
--Tener instaldo Docker 
+- Docker 
 
 
 ### Instalación 
 
-1 - instalar  mongo db en un contenedor 
--comandos
+1 - instalar  mongo db en un contenedor. 
 
-sudo docker pull mongo
+ -Comandos:
 
-sudo docker run -p 27017:27017 --name mongodb mongo 
+  --sudo docker pull mongo
+ 
+  --sudo docker run -p 27017:27017 --name mongodb mongo 
 
-Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017
+   (Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017)
 
-2 - Obtén el proyecto
+2 - Obtén el proyecto desde GitHub
+
+ -Comando:
+ 
+   --git clone https://github.com/ND20011/Magneto-api.git
 
 
-git clone https://github.com/ND20011/Magneto-api.git
+3 - Abrir una terminal y dirigete a la carpeta del proyecto
 
 
-3 - Abrir una terminal apuntando a la carpeta del proyecto y ejejutar estos comando para inicializar el programa 
+4 - Inicializar el programa: 
 
-    mvn clean install
+ -Comandos:
+
+   -- mvn clean install
     
-    cd ./target
+   -- cd ./target
     
-    java -jar magneto-0.0.1-SNAPSHOT.jar 
+   -- java -jar magneto-0.0.1-SNAPSHOT.jar 
 
 
 ### Construido con  
@@ -64,15 +70,17 @@ git clone https://github.com/ND20011/Magneto-api.git
 - mongo db 
 
 
-###Como probar el proyecto localmente   
+### Como probar el proyecto localmente   (Usando postman)
 
-    Usando postman
-     
-    para detectar si una persona es humano o mutante enviar una peticion post  
-    http POST http://localhost:9000/api/persons/mutant 
+   Para detectar si una persona es humano o mutante enviar una peticion post.
+   
+   Ejemplo:
+   
+    - POST :  http://localhost:9000/api/persons/mutant 
     
-    tendras que enviar un json con este formato 
-    {
+    - Enviar un json con el siguiente formato: 
+  
+  {
     "dna":[
     	"ATGCGA",
     	"CAGTGC",
@@ -81,12 +89,14 @@ git clone https://github.com/ND20011/Magneto-api.git
     	"TTTTTT",
     	"CACTCC"]
     }
-     Te devolvera un http 200-Ok si es mutante 
-     Te devolvera un http 403-Forbidden si es humano 
+    
+   Resultado: 
+    1- Te devolvera un http 200-Ok si es mutante 
+    2- Te devolvera un http 403-Forbidden si es humano 
       
      
 
-   http GET http://localhost:9000/api/persons/stats
+  - GET : http://localhost:9000/api/persons/stats
    
     Devuelve un Json con las estadísticas de las verificaciones de ADN:
    
