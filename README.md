@@ -35,8 +35,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  Comandos : 
  
-    -sudo docker pull mongo
-    -sudo docker run -p 27017:27017 --name mongodb mongo 
+    - sudo docker pull mongo
+    
+    - sudo docker run -p 27017:27017 --name mongodb mongo 
 
    (Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017)
 
