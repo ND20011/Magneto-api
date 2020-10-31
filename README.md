@@ -14,6 +14,7 @@ Sabrás si un humano es mutante, si encuentras más de una secuencia de cuatro l
 iguales, de forma  horizontal , vertical u oblicua
 
 Ejemplo (Caso mutante):
+
 String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 
  
@@ -80,15 +81,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
     
    - Enviar un json con el siguiente formato: 
   
-  {
-    "dna":[
-    	"ATGCGA",
-    	"CAGTGC",
-    	"TTATGT",
-    	"AGAACG",
-    	"TTTTTT",
-    	"CACTCC"]
-    }
+         {"dna":["ATGCGA","CAGTGC","TTATGT","AGAACG","TTTTTT","CACTCC"]}
     
    Resultado: 
     1- Te devolvera un http 200-Ok si es mutante 
