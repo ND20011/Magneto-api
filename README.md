@@ -20,7 +20,7 @@ String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 ## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-## Pre-requisitos1 - i
+## Pre-requisitos
 
 - Java  JDK 11
 
@@ -31,11 +31,12 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Instalación 
 
-- instalar  mongo db en un contenedor. 
+1 - instalar  mongo db en un contenedor. 
 
- - Comandos : sudo docker pull mongo
+ Comandos : 
  
-  - sudo docker run -p 27017:27017 --name mongodb mongo 
+    -sudo docker pull mongo
+    -sudo docker run -p 27017:27017 --name mongodb mongo 
 
    (Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017)
 
@@ -43,7 +44,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  Comando:
  
-   - git clone https://github.com/ND20011/Magneto-api.git
+    - git clone https://github.com/ND20011/Magneto-api.git
 
 
 3 - Abrir una terminal y dirigete a la carpeta del proyecto
@@ -53,11 +54,11 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  Comandos:
 
-   - mvn clean install
+    - mvn clean install
     
-   - cd ./target
+    - cd ./target
     
-   - java -jar magneto-0.0.1-SNAPSHOT.jar 
+    - java -jar magneto-0.0.1-SNAPSHOT.jar 
 
 
 ### Construido con  
@@ -74,9 +75,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    
    Ejemplo:
    
-    - POST :  http://localhost:9000/api/persons/mutant 
+   - POST :  http://localhost:9000/api/persons/mutant 
     
-    - Enviar un json con el siguiente formato: 
+   - Enviar un json con el siguiente formato: 
   
   {
     "dna":[
