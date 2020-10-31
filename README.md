@@ -33,11 +33,11 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 1 - instalar  mongo db en un contenedor. 
 
- - Comandos:
+ - Comandos :
 
-  --sudo docker pull mongo
+  - sudo docker pull mongo
  
-  --sudo docker run -p 27017:27017 --name mongodb mongo 
+  - sudo docker run -p 27017:27017 --name mongodb mongo 
 
    (Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017)
 
@@ -76,9 +76,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    
    Ejemplo:
    
-    - POST :  http://localhost:9000/api/persons/mutant 
+    -POST :  http://localhost:9000/api/persons/mutant 
     
-    - Enviar un json con el siguiente formato: 
+    -Enviar un json con el siguiente formato: 
   
   {
     "dna":[
