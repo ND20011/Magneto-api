@@ -8,6 +8,10 @@ import java.util.regex.Pattern;
 @Component
 public class Analyzer {
     private String[] dna;
+
+
+
+
       public Boolean isMutant(String[] dna) {
         this.dna = dna;
         return analyze();
@@ -19,7 +23,9 @@ public class Analyzer {
         this.dna = dna;
 
         String s ="";
+        //
         for (int i = 0;i< dna.length;i++){
+            //comprovate nxn
             if(dna.length==dna[i].length()){
                 s+=dna[i];
             }else {
@@ -43,23 +49,24 @@ public class Analyzer {
 
     private boolean analyze() {
         int n = dna.length;
-        int secuenciasDe4=0;
+        int secuence4=0;
         //-------
 
 
         for (int i =0 ; i < n;i++) {
-            secuenciasDe4 += search(getRow(dna,i));
-            secuenciasDe4 += search(getcolumns(dna,i));
-            secuenciasDe4 += search(getDiagonalRow(dna,i));
-            if(secuenciasDe4>1){
+            secuence4 += search(getRow(dna,i));
+            secuence4 += search(getcolumns(dna,i));
+            secuence4 += search(getDiagonalRow(dna,i));
+            if(secuence4>1){
                 return true;
             }
         }
 
+
         for (int i =1 ; i < n;i++) {
 
-            secuenciasDe4 += search(getDiagonalColumn(dna,i));
-            if(secuenciasDe4>1){
+            secuence4 += search(getDiagonalColumn(dna,i));
+            if(secuence4>1){
                 return true;
             }
         }
