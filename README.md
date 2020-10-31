@@ -20,7 +20,7 @@ String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 ## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
 
-## Pre-requisitos
+## Pre-requisitos1 - i
 
 - Java  JDK 11
 
@@ -31,7 +31,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Instalación 
 
-1 - instalar  mongo db en un contenedor. 
+- instalar  mongo db en un contenedor. 
 
  - Comandos : sudo docker pull mongo
  
