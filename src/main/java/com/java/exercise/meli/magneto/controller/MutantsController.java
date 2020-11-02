@@ -47,7 +47,6 @@ public class MutantsController {
                 }
 
             } else {
-                logger.warn(String.format("Invalid DNA (n*n)"));
                 throw new BadRequestException("Invalid DNA ");
             }
 

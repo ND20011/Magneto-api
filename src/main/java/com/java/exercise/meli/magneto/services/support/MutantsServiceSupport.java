@@ -25,7 +25,7 @@ public class MutantsServiceSupport implements IMutantsService {
 
         Mutant m = personRepository.findBydna(dna).orElse( null) ;
         if (m == null) {
-            logger.info (String.format (" DNA is not in the db"));
+            logger.info (String.format ("DNA is not in the db"));
             return null;
         }
         logger.debug (String.format ("DNA found"+ m.getId()));
