@@ -78,7 +78,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
 ### Como probar el proyecto localmente   (Usando postman)
 
-   Para detectar si una persona es humano o mutante enviar una peticion post.
+   Para detectar si una persona es humano o mutante enviar una peticion post a localhost:9000/api/persons/mutan
    
    Ejemplo:
    
@@ -89,11 +89,20 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
          {"dna":["ATGCGA","CAGTGC","TTATGT","AGAACG","TTTTTT","CACTCC"]}
     
    Resultado: 
-    1- Te devolvera un http 200-Ok si es mutante 
-    2- Te devolvera un http 403-Forbidden si es humano 
+   1- Te devolvera un http 200-Ok si es mutante 
+   
+   2- Te devolvera un http 403-Forbidden si es humano 
            
+ Para obtener las estadísticas de las verificaciones de ADN enviar una peticion GET a localhost:9000/api/persons/stats
+
+   Ejemplo:
 
   - GET : http://localhost:9000/api/persons/stats
    
     Devuelve un Json con las estadísticas de las verificaciones de ADN
+    
+    {count_mutant_dna:40.0,count_human_dna:100.0, ratio:0.4}
+    
+    
+    
    
