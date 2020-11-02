@@ -89,7 +89,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    
     2- Te devolvera un http 403-Forbidden si es humano 
            
- Para obtener las estadísticas de las verificaciones de ADN enviar una peticion GET a localhost:9000/api/persons/stats
+ Para obtener las estadísticas de las verificaciones de ADN enviar una peticion GET a localhost:9000/api/stats
 
    Ejemplo:
 
