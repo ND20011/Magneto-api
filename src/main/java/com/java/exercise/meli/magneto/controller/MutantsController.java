@@ -18,7 +18,7 @@ public class MutantsController {
 
 
     @Autowired
-    private IMutantsService personService;
+    private IMutantsService mutantsService;
 
     private static final Logger logger = LogManager.getLogger (MutantsController.class);
 
@@ -29,10 +29,10 @@ public class MutantsController {
     public Object isMutant(@RequestBody Mutant mutant)  {
         try {
             //search  DNA
-            Mutant m = personService.findMutantByDna(mutant.getDna());
+            Mutant m = mutantsService.findMutantByDna(mutant.getDna());
             if (m == null) {
                 //analyze and save
-                m = personService.create(mutant);
+                m = mutantsService.create(mutant);
             }
 
             // answer according to m
@@ -59,7 +59,7 @@ public class MutantsController {
 
     @RequestMapping (value="/stats",method = RequestMethod.GET)
     public Object stats()  {
-        float[] stat = personService.stats();
+        float[] stat = mutantsService.stats();
         return "{count_mutant_dna:"+stat[0]+ ",count_human_dna:"+stat[1]+", ratio:"+stat[2]+"}";
     }
 

@@ -25,10 +25,10 @@ public class MutantsServiceSupport implements IMutantsService {
 
         Mutant m = personRepository.findBydna(dna).orElse( null) ;
         if (m == null) {
-            logger.info (String.format ("The person is not in the db"));
+            logger.info (String.format (" DNA is not in the db"));
             return null;
         }
-        logger.debug (String.format ("Found a person by DNA  "+ m.getId()));
+        logger.debug (String.format ("DNA found"+ m.getId()));
         return m;
     }
 
@@ -46,7 +46,7 @@ public class MutantsServiceSupport implements IMutantsService {
             }
             try {
                 personRepository.save(mutant);
-                logger.info (String.format ("person created "));
+                logger.info (String.format ("created "));
             } catch (Exception ex) {
             }
         }else {
