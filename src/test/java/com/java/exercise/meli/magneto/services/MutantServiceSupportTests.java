@@ -1,9 +1,9 @@
 package com.java.exercise.meli.magneto.services;
 
 import com.java.exercise.meli.magneto.model.Analyzer;
-import com.java.exercise.meli.magneto.model.Person;
-import com.java.exercise.meli.magneto.repository.IPersonR;
-import com.java.exercise.meli.magneto.services.support.PersonServiceSupport;
+import com.java.exercise.meli.magneto.model.Mutant;
+import com.java.exercise.meli.magneto.repository.IMutantR;
+import com.java.exercise.meli.magneto.services.support.MutantsServiceSupport;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,26 +14,26 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-public class PersonServiceSupportTests {
+public class MutantServiceSupportTests {
 
     @Mock
-    private IPersonR personRepository;
+    private IMutantR personRepository;
 
     @Mock
     private Analyzer analyzer;
 
     @InjectMocks
-    PersonServiceSupport personServiceSupport;
+    MutantsServiceSupport personServiceSupport;
 
     String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
     @Test
     public void testFindMutantByDna(){
 
-        Person p1= new Person();
+        Mutant p1= new Mutant();
         p1.setDna(dna);
         Mockito.when(this.personRepository.findBydna(dna)).thenReturn(java.util.Optional.of(p1));
-        Person personResult = personServiceSupport.findMutantByDna(dna);
-        Assert.assertEquals(p1,personResult);
+        Mutant mutantResult = personServiceSupport.findMutantByDna(dna);
+        Assert.assertEquals(p1, mutantResult);
     }
 
 
@@ -41,19 +41,19 @@ public class PersonServiceSupportTests {
     public void testCreateIsMutant(){
         Mockito.when(this.analyzer.validation(dna)).thenReturn(true);
         Mockito.when(this.analyzer.isMutant(dna)).thenReturn(true);
-        Person p1= new Person();
-        p1.setId("1");
-        p1.setDna(dna);
-        p1.setMutant(false);
+        Mutant mutant= new Mutant();
+        mutant.setId("1");
+        mutant.setDna(dna);
+        mutant.setMutant(false);
 
-        Person expected= new Person();
+        Mutant expected= new Mutant();
         expected.setId("1");
         expected.setDna(dna);
         expected.setMutant(true);
 
 
-        Person personResult = personServiceSupport.create(p1);
-        Assert.assertEquals(expected,personResult);
+        Mutant mutantResult = personServiceSupport.create(mutant);
+        Assert.assertEquals(expected, mutantResult);
     }
 
 
@@ -62,18 +62,18 @@ public class PersonServiceSupportTests {
         Mockito.when(this.analyzer.validation(dna)).thenReturn(true);
         Mockito.when(this.analyzer.isMutant(dna)).thenReturn(false);
 
-        Person p1= new Person();
-        p1.setDna(dna);
-        p1.setMutant(false);
+        Mutant mutant= new Mutant();
+        mutant.setDna(dna);
+        mutant.setMutant(false);
 
-        Person expected= new Person();
+        Mutant expected= new Mutant();
         expected.setDna(dna);
         expected.setMutant(false);
 
 
 
-        Person personResult = personServiceSupport.create(p1);
-        Assert.assertEquals(expected,personResult);
+        Mutant mutantResult = personServiceSupport.create(mutant);
+        Assert.assertEquals(expected, mutantResult);
     }
 
 
@@ -81,13 +81,13 @@ public class PersonServiceSupportTests {
     public void testCreatevalidationFalse(){
         Mockito.when(this.analyzer.validation(dna)).thenReturn(false);
 
-        Person p1= new Person();
-        p1.setDna(dna);
-        p1.setMutant(false);
+        Mutant mutant= new Mutant();
+        mutant.setDna(dna);
+        mutant.setMutant(false);
 
-        Person personResult = personServiceSupport.create(p1);
+        Mutant mutantResult = personServiceSupport.create(mutant);
 
-        Assert.assertEquals(null,personResult);
+        Assert.assertEquals(null, mutantResult);
     }
 
 

@@ -41,9 +41,9 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  Comandos : 
  
-    - sudo docker pull mongo
+    -  docker pull mongo
     
-    - sudo docker run -p 27017:27017 --name mongodb mongo 
+    -  docker run -p 27017:27017 --name mongodb mongo 
 
    (Con esos dos comandos ya tienes un contenedor con mongodb corriendo y te conectaras con el puerto 27017)
 
@@ -61,12 +61,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  Comandos:
 
-    - mvn clean install
-    
-    - cd ./target
-    
-    - java -jar magneto-0.0.1-SNAPSHOT.jar 
-
+     - mvn spring-boot:run
 
 ### Construido con  
 
@@ -82,7 +77,7 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
    
    Ejemplo:
    
-   - POST :  http://localhost:9000/api/persons/mutant 
+   - POST : http://localhost:9000/api/mutant
     
    - Enviar un json con el siguiente formato: 
   
@@ -93,7 +88,12 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
     2- Te devolvera un http 403-Forbidden si es humano 
            
 
-  - GET : http://localhost:9000/api/persons/stats
-   
-    Devuelve un Json con las estadísticas de las verificaciones de ADN
-   
+ Para obtener las estadísticas de las verificaciones de ADN enviar una peticion GET a localhost:9000/api/stats
+ 
+   Ejemplo:
+ 
+   - GET : http://localhost:9000/api/stats
+ 
+  Devuelve un Json con las estadísticas de las verificaciones de ADN
+ 
+   {count_mutant_dna:40.0,count_human_dna:100.0, ratio:0.4}

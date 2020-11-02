@@ -1,22 +1,22 @@
 package com.java.exercise.meli.magneto.repository;
 
-import com.java.exercise.meli.magneto.model.Person;
+import com.java.exercise.meli.magneto.model.Mutant;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
 
-public interface IPersonR extends MongoRepository<Person, String> {
+public interface IMutantR extends MongoRepository<Mutant, String> {
 
     /**
      *
-     *  <p>Method that find person  by dna.
+     *  <p>Method that find human or mutant  by dna.
      *
      *  @param dna
      *  @return mutant.
      * */
 
-    Optional <Person> findBydna (String[] dna);
+    Optional <Mutant> findBydna (String[] dna);
 
 
     /**

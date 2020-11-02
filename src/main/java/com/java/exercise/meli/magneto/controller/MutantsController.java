@@ -2,8 +2,8 @@ package com.java.exercise.meli.magneto.controller;
 
 
 import com.java.exercise.meli.magneto.exeptionHandler.exeption.BadRequestException;
-import com.java.exercise.meli.magneto.model.Person;
-import com.java.exercise.meli.magneto.services.IPersonService;
+import com.java.exercise.meli.magneto.model.Mutant;
+import com.java.exercise.meli.magneto.services.IMutantsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,27 +13,26 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RequestMapping ("persons")
 @RestController
-public class PersonController {
+public class MutantsController {
 
 
     @Autowired
-    private IPersonService personService;
+    private IMutantsService personService;
 
-    private static final Logger logger = LogManager.getLogger (PersonController.class);
+    private static final Logger logger = LogManager.getLogger (MutantsController.class);
 
 
 
 
     @RequestMapping (value="/mutant",method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
-    public Object isMutant(@RequestBody Person person)  {
+    public Object isMutant(@RequestBody Mutant mutant)  {
         try {
             //search  DNA
-            Person m = personService.findMutantByDna(person.getDna());
+            Mutant m = personService.findMutantByDna(mutant.getDna());
             if (m == null) {
                 //analyze and save
-                m = personService.create(person);
+                m = personService.create(mutant);
             }
 
             // answer according to m

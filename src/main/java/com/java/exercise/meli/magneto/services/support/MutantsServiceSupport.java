@@ -1,9 +1,9 @@
 package com.java.exercise.meli.magneto.services.support;
 
 import com.java.exercise.meli.magneto.model.Analyzer;
-import com.java.exercise.meli.magneto.model.Person;
-import com.java.exercise.meli.magneto.repository.IPersonR;
-import com.java.exercise.meli.magneto.services.IPersonService;
+import com.java.exercise.meli.magneto.model.Mutant;
+import com.java.exercise.meli.magneto.repository.IMutantR;
+import com.java.exercise.meli.magneto.services.IMutantsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service("mutant")
 @Transactional(readOnly = true)
-public class PersonServiceSupport implements IPersonService {
+public class MutantsServiceSupport implements IMutantsService {
 
     @Autowired
-    private IPersonR personRepository;
+    private IMutantR personRepository;
     @Autowired
     private Analyzer analyzer;
-    private static final Logger logger = LogManager.getLogger (PersonServiceSupport.class);
+    private static final Logger logger = LogManager.getLogger (MutantsServiceSupport.class);
 
     @Override
-    public Person findMutantByDna(String[] dna)  {
+    public Mutant findMutantByDna(String[] dna)  {
 
-        Person m = personRepository.findBydna(dna).orElse( null) ;
+        Mutant m = personRepository.findBydna(dna).orElse( null) ;
         if (m == null) {
             logger.info (String.format ("The person is not in the db"));
             return null;
@@ -34,18 +34,18 @@ public class PersonServiceSupport implements IPersonService {
 
 
     @Override
-    public Person create(Person person) {
+    public Mutant create(Mutant mutant) {
 
-        if (analyzer.validation(person.getDna())){
+        if (analyzer.validation(mutant.getDna())){
 
-            if ( analyzer.isMutant(person.getDna()))
+            if ( analyzer.isMutant(mutant.getDna()))
             {
-                person.setMutant(true);
+                mutant.setMutant(true);
             }else {
-                person.setMutant(false);
+                mutant.setMutant(false);
             }
             try {
-                personRepository.save(person);
+                personRepository.save(mutant);
                 logger.info (String.format ("person created "));
             } catch (Exception ex) {
             }
@@ -53,7 +53,7 @@ public class PersonServiceSupport implements IPersonService {
             // Invalid array
             return null;
         }
-        return person;
+        return mutant;
     }
 
     @Override

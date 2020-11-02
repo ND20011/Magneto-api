@@ -1,10 +1,8 @@
 package com.java.exercise.meli.magneto.controller;
 
 
-import com.java.exercise.meli.magneto.model.Analyzer;
-import com.java.exercise.meli.magneto.model.Person;
-import com.java.exercise.meli.magneto.repository.IPersonR;
-import com.java.exercise.meli.magneto.services.support.PersonServiceSupport;
+import com.java.exercise.meli.magneto.model.Mutant;
+import com.java.exercise.meli.magneto.services.support.MutantsServiceSupport;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,22 +16,22 @@ import org.springframework.http.ResponseEntity;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
-public class PersonControllerTests {
+public class MutantsControllerTests {
 
 
     @InjectMocks
-    PersonController personController;
+    MutantsController mutantsController;
 
 
     @Mock
-    PersonServiceSupport personServiceSupport;
+    MutantsServiceSupport personServiceSupport;
 
     String[] dna = {"TTGCGA","CAGTGC","TTATGT","TTATGT","TTATGT","TTATGT"};
     @Test
     public void testIsMutantTrue(){
 
 
-        Person p1= new Person();
+        Mutant p1= new Mutant();
         p1.setId("1");
         p1.setDna(dna);
         p1.setMutant(true);
@@ -41,7 +39,7 @@ public class PersonControllerTests {
         Mockito.when(this.personServiceSupport.findMutantByDna(dna)).thenReturn(p1);
 
 
-        ResponseEntity response= (ResponseEntity) personController.isMutant(p1);
+        ResponseEntity response= (ResponseEntity) mutantsController.isMutant(p1);
         ResponseEntity expected= new ResponseEntity<Object>(HttpStatus.OK);
 
 
@@ -52,14 +50,14 @@ public class PersonControllerTests {
     public void testIsMutantFalse(){
 
 
-        Person p1= new Person();
+        Mutant p1= new Mutant();
         p1.setId("1");
         p1.setDna(dna);
         p1.setMutant(false);
         Mockito.when(this.personServiceSupport.findMutantByDna(dna)).thenReturn(p1);
 
 
-        ResponseEntity response= (ResponseEntity) personController.isMutant(p1);
+        ResponseEntity response= (ResponseEntity) mutantsController.isMutant(p1);
         ResponseEntity expected= new ResponseEntity<Object>(HttpStatus.FORBIDDEN);
 
         Assert.assertEquals(response,expected);

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 
 @Document(collection = "Mutant")
-public class Person {
+public class Mutant {
 
     @Id
     @NotNull
@@ -46,7 +46,7 @@ public class Person {
         isMutant = mutant;
     }
 
-    public Person() {
+    public Mutant() {
     }
 
     @Override
@@ -61,11 +61,11 @@ public class Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Person)) return false;
-        Person person = (Person) o;
-        return isMutant == person.isMutant &&
-                Objects.equals(id, person.id) &&
-                Arrays.equals(dna, person.dna);
+        if (!(o instanceof Mutant)) return false;
+        Mutant mutant = (Mutant) o;
+        return isMutant == mutant.isMutant &&
+                Objects.equals(id, mutant.id) &&
+                Arrays.equals(dna, mutant.dna);
     }
 
     @Override
