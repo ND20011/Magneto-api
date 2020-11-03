@@ -17,14 +17,26 @@ Ejemplo (Caso mutante):
 
 String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 
+
+
+## Demo:
+   http://18.218.181.97:9000/api    
+
+Obtener la estadistica de la cantidad de mutantes
+- GET http://18.218.181.97:9000/api/stats 
+
+Comprobar si un ADN es de un mutante o de un humano 
+  - POST http://18.218.181.97:9000/api/mutant 
+   
+ Ejemplo de cadena de ADN:
  
+ {"dna":["ATGCGA","CAGTGC","TTATGT","AGAACG","TTTTTT","CACTCC"]}
+
+ 
+
+
 ## Comenzando
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
-
- demo:
-   http://52.14.45.142:9000/api
-    
- 
 
 ## Pre-requisitos
 
